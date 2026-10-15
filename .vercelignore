@@ -1,0 +1,26 @@
+.git
+.openai
+.vercel
+.DS_Store
+README.md
+make_resume.py
+wallpaper-generation.json
+test-progress.mjs
+tests
+*.tar.gz
+*.zip
+
+# Private configuration must never be uploaded
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+node_modules
+__pycache__
+.playwright-mcp
+scripts
+test-*.mjs

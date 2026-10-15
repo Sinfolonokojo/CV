@@ -1,0 +1,92 @@
+RAFAELOS - VERCEL DEPLOYMENT
+
+This package contains the complete responsive website, including its wallpaper,
+English/Spanish interface, interactive missions and downloadable resume.
+No API keys, paid integrations, application dependencies or database are needed.
+
+OPTION 1: GITHUB + VERCEL DASHBOARD
+
+1. Unzip rafaelos-vercel.zip.
+2. Create a GitHub repository and upload the CONTENTS of the rafaelos-vercel folder.
+   vercel.json and the dist folder must appear at the repository root.
+3. In Vercel, select Add New > Project and import that GitHub repository.
+4. Keep the Root Directory at the repository root. The included vercel.json sets:
+   Framework Preset: Other
+   Output Directory: dist
+   Build Command: empty (no build step)
+   Install Command: empty (no dependencies to install)
+5. Click Deploy. Vercel will provide your website URL.
+
+OPTION 2: VERCEL CLI
+
+With Node.js installed, open a terminal in the extracted rafaelos-vercel folder:
+
+  npx vercel login
+  npx vercel --prod
+
+Select your Vercel account/team and create or link the intended project when asked.
+Run the command from the folder containing vercel.json, not from dist.
+
+LOCAL PREVIEW
+
+From the extracted folder, run:
+
+  python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
+
+Then open http://localhost:4173 in your browser.
+Opening index.html directly as a file will not load JavaScript modules reliably.
+
+EDITING THE WEBSITE
+
+dist/content.js: experience, projects, skills and certifications.
+dist/app.js: page content, contact links, English/Spanish text and desktop behavior.
+dist/missions.js: fictional incident missions.
+dist/style.css: original desktop appearance.
+dist/responsive.css: phone, tablet, landscape and safe-area adjustments.
+dist/assets/rolling-hills-wallpaper.jpg: desktop wallpaper.
+dist/Rafael-Rendon-Resume.pdf: downloadable English resume.
+
+RESPONSIVE VERIFICATION
+
+Checked at 320x568, 390x844, 768x1024, 820x1180, 844x390, 1024x600 and 1440x900.
+Start menu stays within the viewport and scrolls when needed.
+Desktop shortcuts form a compact grid on small or short screens.
+Phone app navigation uses labeled, horizontally scrollable buttons.
+Tablets and landscape phones show one active window with accessible controls.
+All core content pages fit without horizontal overflow.
+
+OFFICIAL VERCEL REFERENCES
+
+https://vercel.com/docs/project-configuration/vercel-json
+https://vercel.com/docs/cli/deploy
+
+This package has not been deployed to Vercel. It contains no saved Vercel
+credentials, account/project links, Sites hosting identity, or Git history.
+
+SECURITY BEFORE AND AFTER DEPLOYMENT
+
+Only dist is public. Keep vercel.json at the project root so Vercel applies
+its security headers. The Content Security Policy allows local scripts,
+styles and images; blocks inline scripts, external connections, form submissions
+and embedding this site in another website. Camera, microphone and location
+permissions are disabled. Links to email, phone, LinkedIn and GitHub still work.
+
+The simple local preview above does not apply these HTTP headers. They take
+effect when Vercel serves the site. After deployment, check the live response
+headers in your browser's Network panel and try the games, language switch,
+mobile layout and resume download. Confirm HTTPS works on your final domain.
+
+Enable two-factor authentication on GitHub and Vercel. Keep repository access
+limited to people who need it. Review changes before deploying.
+
+The ignore files help prevent accidental inclusion of .env files, private keys
+and hosting metadata. They do not remove files already committed to Git and
+are not a substitute for reviewing files. Never place secrets inside dist;
+anything delivered to a visitor's browser is public. Your resume contact details
+are intentionally public. No client records or credentials are needed here.
+
+If you later add a contact form, analytics, embedded media or an API, review the
+Content Security Policy and add the appropriate server-side protections first.
+
+https://vercel.com/docs/project-configuration/vercel-json#headers
+https://vercel.com/docs/two-factor-authentication

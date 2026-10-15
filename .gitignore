@@ -1,0 +1,19 @@
+# Local hosting metadata and generated packages
+.vercel/
+.openai/
+.DS_Store
+node_modules/
+__pycache__/
+.playwright-mcp/
+*.zip
+*.tar.gz
+
+# Keep credentials out of future commits
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
